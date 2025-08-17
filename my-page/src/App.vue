@@ -1,30 +1,63 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <HeaderNav />
+  <div class="scroll-container">
+    <!-- 占位首页区块，替代 HeroSection -->
+    <div class="section" id="home">
+      <div class="home-placeholder">
+        <h1>欢迎来到我的科技世界</h1>
+        <p>这里是首页区块内容，占位替代 HeroSection</p>
+      </div>
+    </div>
+
+    <div class="section" id="about">
+      <AboutSection />
+    </div>
+
+    <div class="section" id="projects">
+      <ProjectsSection />
+    </div>
+
+    <div class="section" id="contact">
+      <ContactSection />
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
+<script setup>
+import HeaderNav from './components/HeaderNav.vue';
+import AboutSection from './components/AboutSection.vue';
+import ProjectsSection from './components/ProjectsSection.vue';
+import ContactSection from './components/ContactSection.vue';
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.scroll-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+.section {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+/* 首页占位样式 */
+.home-placeholder {
+  text-align: center;
+  color: #ffffff;
+}
+
+.home-placeholder h1 {
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+
+.home-placeholder p {
+  font-size: 1.5em;
+  color: #cccccc;
 }
 </style>
