@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Set VITE_BASE_PATH for Pages
         run: |
@@ -35,11 +35,15 @@ jobs:
             echo "VITE_BASE_PATH=/$REPO/" >> $GITHUB_ENV
           fi
 
-      - name: Install and Build
+      - name: Install dependencies
         working-directory: frontend
         run: |
           npm ci || npm install
-          npm run build
+
+      - name: Build with Vite
+        working-directory: frontend
+        run: |
+          npx vite build
 
       - name: Add .nojekyll to dist
         run: |
