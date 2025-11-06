@@ -41,6 +41,10 @@ jobs:
           npm ci || npm install
           npm run build
 
+      - name: Add .nojekyll to dist
+        run: |
+          echo "" > frontend/dist/.nojekyll
+
       - name: Upload Pages Artifact
         uses: actions/upload-pages-artifact@v3
         with:
