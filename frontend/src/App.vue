@@ -30,8 +30,8 @@ import HeaderNav from './components/HeaderNav.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
-import ContactSection from './components/ContactSection.vue'
-import Footer from './components/Footer.vue'
+import ContactSection from '@/components/ContactSection.vue'
+import Footer from '@/components/Footer.vue'
 
 const activeSection = ref<'home' | 'about' | 'projects' | 'contact'>('home')
 const homeRef = ref<HTMLElement | null>(null)
