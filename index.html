@@ -3,110 +3,268 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>编程学习文档导航</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Microsoft Yahei", "Consolas", monospace;
-        }
-
-        body {
-            background-color: #f5f7fa;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h1 {
-            text-align: center;
-            color: #2d3748;
-            margin-bottom: 30px;
-            font-weight: 600;
-            border-bottom: 2px solid #4299e1;
-            padding-bottom: 10px;
-        }
-
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 16px;
-        }
-
-        .nav-item {
-            background: white;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s, box-shadow 0.2s;
-            border-left: 4px solid #4299e1;
-        }
-
-        .nav-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-item a {
-            text-decoration: none;
-            color: #2d3748;
-            font-size: 16px;
-            font-weight: 500;
-            display: block;
-        }
-
-        .nav-item a:hover {
-            color: #4299e1;
-            text-decoration: underline;
-        }
-
-        /* 按分类高亮不同的文档 */
-        .nav-item.http { border-left-color: #9f7aea; }
-        .nav-item.java { border-left-color: #e53e3e; }
-        .nav-item.math { border-left-color: #38b2ac; }
-        .nav-item.server { border-left-color: #ed8936; }
-        .nav-item.basic { border-left-color: #48bb78; }
-    </style>
+    <title>我的技术文档库</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1>📚 编程学习文档库</h1>
-        <div class="nav-grid">
-            <!-- HTTP与网络相关 -->
-            <div class="nav-item http"><a href="Axios-ajax.html">Axios-ajax</a></div>
-            <div class="nav-item http"><a href="计算机网络.html">计算机网络</a></div>
+    <div class="background-overlay"></div>
+    
+    <div class="app-container">
+        <!-- Mobile Toggle Button -->
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="sidebar-overlay"></div>
+
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fas fa-book-reader"></i>
+                <span>Docs</span>
+            </div>
             
-            <!-- Java与Web开发相关 -->
-            <div class="nav-item java"><a href="JSP.html">JSP</a></div>
-            <div class="nav-item java"><a href="Listener.html">Listener</a></div>
-            <div class="nav-item java"><a href="Logback.html">Logback</a></div>
-            <div class="nav-item java"><a href="软件工程导论.html">软件工程导论</a></div>
-            <div class="nav-item java"><a href="注解.html">注解</a></div>
-            
-            <!-- 数学与算法相关 -->
-            <div class="nav-item math"><a href="高等数学.html">高等数学</a></div>
-            <div class="nav-item math"><a href="机器学习.html">机器学习</a></div>
-            
-            <!-- 服务器与运维相关 -->
-            <div class="nav-item server"><a href="Nginx.html">Nginx</a></div>
-            
-            <!-- 基础工具与其他 -->
-	    <div class="nav-item basic"><a href="Git.html">Git</a></div>
-            <div class="nav-item basic"><a href="cmd.html">cmd</a></div>
-            <div class="nav-item basic"><a href="json.html">json</a></div>
-            <div class="nav-item basic"><a href="MARKDOWN教程.html">MARKDOWN教程</a></div>
-            <div class="nav-item basic"><a href="MyBatis.html">MyBatis</a></div>
-            <div class="nav-item basic"><a href="xml文件转写.html">xml文件转写</a></div>
-            <div class="nav-item basic"><a href="标准库.html">标准库</a></div>
-            <div class="nav-item basic"><a href="测试.html">测试</a></div>
-            <div class="nav-item basic"><a href="反射.html">反射</a></div>
-            <div class="nav-item basic"><a href="计算机组成原理.html">计算机组成原理</a></div>
-	    <div class="nav-item basic"><a href="数据库复习-基于 Mysql.html">数据库复习-基于 Mysql</a></div>
-        </div>
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="search-input" placeholder="搜索...">
+            </div>
+
+            <ul class="nav-links">
+                <li class="nav-item active" data-target="network">
+                    <a href="#network"><i class="fas fa-network-wired"></i> 网络与协议</a>
+                </li>
+                <li class="nav-item" data-target="java">
+                    <a href="#java"><i class="fab fa-java"></i> Java 开发</a>
+                </li>
+                <li class="nav-item" data-target="math">
+                    <a href="#math"><i class="fas fa-square-root-alt"></i> 数学与算法</a>
+                </li>
+                <li class="nav-item" data-target="server">
+                    <a href="#server"><i class="fas fa-server"></i> 服务器/数据库</a>
+                </li>
+                <li class="nav-item" data-target="c">
+                    <a href="#c"><i class="fas fa-code"></i> C 语言</a>
+                </li>
+                <li class="nav-item" data-target="basics">
+                    <a href="#basics"><i class="fas fa-tools"></i> 基础工具</a>
+                </li>
+            </ul>
+
+
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="welcome-text">
+                    <h1>Welcome Back! 👋</h1>
+                    <p class="typewriter">探索学习，不断丰富知识体系</p>
+                </div>
+            </header>
+
+            <div class="content-scroll">
+                <!-- Network -->
+                <section id="network" class="category-section">
+                    <h2 class="category-title"><i class="fas fa-network-wired"></i> 网络与协议</h2>
+                    <div class="grid">
+                        <a href="articles/network/Axios-ajax.html" class="card">
+                            <div class="card-icon"><i class="fas fa-exchange-alt"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">Axios & Ajax</div>
+                                <div class="card-desc">前端网络请求库与异步交互技术</div>
+                            </div>
+                        </a>
+                        <a href="articles/network/计算机网络.html" class="card">
+                            <div class="card-icon"><i class="fas fa-globe"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">计算机网络</div>
+                                <div class="card-desc">计算机网络基础理论与协议详解</div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Java -->
+                <section id="java" class="category-section">
+                    <h2 class="category-title"><i class="fab fa-java"></i> Java & Web 开发</h2>
+                    <div class="grid">
+                        <a href="articles/java/JSP.html" class="card">
+                            <div class="card-icon"><i class="fas fa-file-code"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">JSP</div>
+                                <div class="card-desc">Java Server Pages</div>
+                            </div>
+                        </a>
+                        <a href="articles/java/Listener.html" class="card">
+                            <div class="card-icon"><i class="fas fa-ear-listen"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">Listener</div>
+                                <div class="card-desc">Web 监听器</div>
+                            </div>
+                        </a>
+                        <a href="articles/java/Logback.html" class="card">
+                            <div class="card-icon"><i class="fas fa-file-alt"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">Logback</div>
+                                <div class="card-desc">日志框架</div>
+                            </div>
+                        </a>
+                        <a href="articles/java/MyBatis.html" class="card">
+                            <div class="card-icon"><i class="fas fa-database"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">MyBatis</div>
+                                <div class="card-desc">持久层框架</div>
+                            </div>
+                        </a>
+                        <a href="articles/java/xml文件书写.html" class="card">
+                            <div class="card-icon"><i class="fas fa-code"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">XML</div>
+                                <div class="card-desc">XML 文件书写规范</div>
+                            </div>
+                        </a>
+                        <a href="articles/java/反射.html" class="card">
+                            <div class="card-icon"><i class="fas fa-cube"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">反射 (Reflection)</div>
+                                <div class="card-desc">Java 反射机制</div>
+                            </div>
+                        </a>
+                        <a href="articles/java/注解.html" class="card">
+                            <div class="card-icon"><i class="fas fa-tag"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">注解 (Annotation)</div>
+                                <div class="card-desc">Java 注解使用与原理</div>
+                            </div>
+                        </a>
+                        <a href="articles/java/测试.html" class="card">
+                            <div class="card-icon"><i class="fas fa-vial"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">测试 (Testing)</div>
+                                <div class="card-desc">单元测试与集成测试</div>
+                            </div>
+                        </a>
+                        <a href="articles/java/软件工程导论.html" class="card">
+                            <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">软件工程导论</div>
+                                <div class="card-desc">软件开发流程与方法</div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Math -->
+                <section id="math" class="category-section">
+                    <h2 class="category-title"><i class="fas fa-square-root-alt"></i> 数学与算法</h2>
+                    <div class="grid">
+                        <a href="articles/math/机器学习.html" class="card">
+                            <div class="card-icon"><i class="fas fa-brain"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">机器学习</div>
+                                <div class="card-desc">机器学习算法与应用</div>
+                            </div>
+                        </a>
+                        <a href="articles/math/高等数学.html" class="card">
+                            <div class="card-icon"><i class="fas fa-calculator"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">高等数学</div>
+                                <div class="card-desc">微积分与线性代数基础</div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Server -->
+                <section id="server" class="category-section">
+                    <h2 class="category-title"><i class="fas fa-server"></i> 服务器与数据库</h2>
+                    <div class="grid">
+                        <a href="articles/server/Nginx.html" class="card">
+                            <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">Nginx</div>
+                                <div class="card-desc">高性能 Web 服务器</div>
+                            </div>
+                        </a>
+                        <a href="articles/server/数据库复习-基于 Mysql.html" class="card">
+                            <div class="card-icon"><i class="fas fa-database"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">MySQL 基础</div>
+                                <div class="card-desc">数据库基础操作与 SQL</div>
+                            </div>
+                        </a>
+                        <a href="articles/server/数据库复习-基于 MysqlVL.html" class="card">
+                            <div class="card-icon"><i class="fas fa-server"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">MySQL 进阶</div>
+                                <div class="card-desc">索引、事务与优化</div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- C Language -->
+                <section id="c" class="category-section">
+                    <h2 class="category-title"><i class="fas fa-code"></i> C 语言</h2>
+                    <div class="grid">
+                        <a href="articles/c/c.html" class="card">
+                            <div class="card-icon"><i class="fab fa-cuttlefish"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">C 语言基础</div>
+                                <div class="card-desc">C 语言程序设计基础</div>
+                            </div>
+                        </a>
+                        <a href="articles/c/标准库.html" class="card">
+                            <div class="card-icon"><i class="fas fa-book"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">标准库</div>
+                                <div class="card-desc">常用类库详解</div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- Basics -->
+                <section id="basics" class="category-section">
+                    <h2 class="category-title"><i class="fas fa-tools"></i> 基础与工具</h2>
+                    <div class="grid">
+                        <a href="articles/basics/Git.html" class="card">
+                            <div class="card-icon"><i class="fab fa-git-alt"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">Git</div>
+                                <div class="card-desc">版本控制工具</div>
+                            </div>
+                        </a>
+                        <a href="articles/basics/MARKDOWN教程.html" class="card">
+                            <div class="card-icon"><i class="fab fa-markdown"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">Markdown</div>
+                                <div class="card-desc">轻量级标记语言指南</div>
+                            </div>
+                        </a>
+                        <a href="articles/basics/json.html" class="card">
+                            <div class="card-icon"><i class="fas fa-code"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">JSON</div>
+                                <div class="card-desc">数据交换格式</div>
+                            </div>
+                        </a>
+                        <a href="articles/basics/计算机组成原理.html" class="card">
+                            <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">计算机组成原理</div>
+                                <div class="card-desc">计算机硬件与体系结构</div>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+                
+                <footer>
+                    <p>&copy; 2026 编程学习笔记 | Built with <i class="fas fa-heart" style="color: #e74c3c;"></i></p>
+                </footer>
+            </div>
+        </main>
     </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
