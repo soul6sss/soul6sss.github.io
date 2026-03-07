@@ -1,0 +1,700 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'><style type='text/css'>html {overflow-x: initial !important;}</style>
+<style type='text/css'  id="style-base">:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, "Segoe UI Emoji", "SF Pro", sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p *, #write.first-line-indent svg * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; position: relative; }
+#write svg h1, #write svg h2, #write svg h3, #write svg h4, #write svg h5, #write svg h6, #write svg p { position: static; white-space: nowrap; overflow: visible; }
+foreignobject { overflow: visible; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.mermaid-svg { margin: auto; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+</style>
+<style type='text/css'  id="style-codemirror">.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+</style>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&amp;subset=latin,latin-ext' type='text/css' />
+<style type='text/css'  id="style-theme_css">:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', 'SF Pro', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+</style>
+<style type='text/css'  id="style-lp">ol, ul {padding-left: 40px}</style>
+
+<title>软件工程导论</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=' first-line-indent'><h1 id='软件工程导论'><span>软件工程导论</span></h1><h2 id='第五章-软件设计和结构化分析'><span>第五章 软件设计和结构化分析</span></h2><h3 id='软件设计的意义和目标'><span>软件设计的意义和目标</span></h3><ol start='' ><li><p><span>软件设计在开发过程中处于核心地位，是一个迭代的过程</span></p></li><li><p><span>麦克拉夫林给出三个特征</span></p><ol start='' ><li><p><span>明确需求，满足用户所有期望</span></p></li><li><p><span>设计是可读的，可理解的指南</span></p></li><li><p><span>设计必须提供软件的全貌，从实现的角度说明数据域.功能域，行为域</span></p></li></ol></li></ol><h3 id='软件设计的原则'><span>软件设计的原则</span></h3><ol start='' ><li><p><span>模块化</span></p></li><li><p><span>抽象</span></p></li><li><p><span>逐步求精</span></p></li><li><p><span>信息隐藏</span></p></li><li><p><span>复用性设计</span></p></li><li><p><span>灵活性设计</span></p></li></ol><h3 id='软件设计的分类'><span>软件设计的分类</span></h3><ol start='' ><li><p><span>活动任务角度</span></p><ol start='' ><li><p><span>数据模型和信息模型</span></p></li><li><p><span>体系设计结构</span></p></li><li><p><span>接口设计</span></p></li><li><p><span>组件设计</span></p></li><li><p><span>部署设计</span></p></li></ol></li><li><p><span>工程管理角度</span></p><ol start='' ><li><p><span>概要设计</span></p><ol start='' ><li><p><span>目标架构</span></p></li><li><p><span>每个模块的功能描述，数据接口描述</span></p></li><li><p><span>数据库和数据结构等</span></p></li></ol></li><li><p><span>详细设计</span></p><ol start='' ><li><p><span>过程设计</span></p></li><li><p><span>数据设计</span></p></li><li><p><span>接口设计</span></p></li></ol></li></ol><p>&nbsp;</p></li></ol><h3 id='软件体系结构'><span>软件体系结构</span></h3><p><span>   体系结构是研究系统各部分组成及相互关系的技术学科</span></p><p><span>   包含</span></p><ol start='' ><li><p><span>软件的组成元素</span></p></li><li><p><span>元素的可见性</span></p></li><li><p><span>元素的相互关系</span></p></li></ol><p><span>   软件体系结构的目标和作用</span></p><p><span>   目标</span></p><ol start='' ><li><p><span>定义软件的基本组件</span></p></li><li><p><span>明确系统如何实现功能</span></p></li><li><p><span>尽量使用已有的组件</span></p></li></ol><p><span>   作用</span></p><ol start='' ><li><p><span>	</span><span>规范软件开发的基本架构</span></p></li><li><p><span>便于开发人员与客户的沟通</span></p></li><li><p><span>模块化层次化的设计</span></p></li><li><p><span>便于系统开发前，后期的筹备和服务</span></p></li></ol><h3 id='典型的软件体系风格'><span>典型的软件体系风格</span></h3><ol start='' ><li><p><span>	</span><span>数据流风格</span></p></li><li><p><span>调用返回风格</span></p></li><li><p><span>独立组件风格</span></p></li><li><p><span>虚拟机风格</span></p></li><li><p><span>仓库风格</span></p></li></ol><h3 id='cs架构介绍'><span>C/S架构介绍</span></h3><h3 id='mvc模型介绍'><span>MVC模型介绍</span></h3><h3 id='结构化设计概述'><span>结构化设计概述</span></h3><p><span>   具体步骤</span></p><ol start='' ><li><p><span>从需求分析的角度出发，制定合适的方案</span></p></li><li><p><span>采用某种设计方法</span></p></li><li><p><span>确定每个接口的功能</span></p></li><li><p><span>系统接口设计</span></p></li><li><p><span>数据库结构设计</span></p></li><li><p><span>分析模型</span></p></li><li><p><span>制定测试计划</span></p></li><li><p><span>攥写软件设计文档</span></p></li></ol><p><span>   具体方法</span></p><ol start='' ><li><p><span>图形工具</span></p><ol start='' ><li><p><span>层次图HPIO图</span></p></li><li><p><span>结构图</span></p></li></ol></li><li><p><span>面向数据流的设计方法</span></p><ol start='' ><li><p><span>变换型数据流</span></p><ol start='' ><li><p><span>学生档案管理系统</span></p></li></ol></li><li><p><span>事务型数据流</span></p><ol start='' ><li><p><span>产品管理系统</span></p></li></ol></li></ol></li><li><p><span>面向数据结构的设计方法</span></p><ol start='' ><li><p><span>Jackson</span></p><ol start='' ><li><p><span>顺序型结构</span></p></li><li><p><span>选择性结构</span></p></li><li><p><span>循环型结构</span></p></li></ol></li><li><p><span>Warnier:不介绍</span></p></li></ol></li></ol><h3 id='接口设计'><span>接口设计</span></h3><ol start='' ><li><p><span>用户设计</span></p></li><li><p><span>外部接口</span></p></li><li><p><span>内部接口</span></p></li></ol><p><span>   设计</span></p><ol start='' ><li><p><span>界面设计</span></p></li></ol><h3 id='数据设计'><span>数据设计</span></h3><ol start='' ><li><p><span>程序级的数据结构设计</span></p></li><li><p><span>应用级的数据库设计</span></p></li></ol><h3 id='过程设计'><span>过程设计</span></h3><ol start='' ><li><p><span>程序流程图</span></p></li><li><p><span>N/S图：盒图</span></p></li><li><p><span>PAD:问题分析图</span></p></li><li><p><span>PDL：过程设计语言</span></p></li></ol><h2 id='第六章软件实现'><span>第六章软件实现</span></h2><h3 id='61编程语言'><span>6.1编程语言</span></h3><ol start='' ><li><p><span>机器语言</span></p></li><li><p><span>汇编语言</span></p></li><li><p><span>高级语言</span></p></li><li><p><span>超高级语言</span></p></li></ol><h3 id='62编程风格和规范'><span>6.2编程风格和规范</span></h3><ol start='' ><li><p><span>版权和版本声明</span></p></li><li><p><span>程序版式</span></p></li><li><p><span>注释和命名规则</span></p></li><li><p><span>数据说明</span></p></li><li><p><span>语句构造</span></p></li><li><p><span>输入输出</span></p></li><li><p><span>效率</span></p></li></ol><h3 id='63代码复用'><span>6.3代码复用</span></h3><ol start='' ><li><p><span>复用：同一事物不做修改或稍加改动就可多次重复使用</span></p></li><li><p><span>开源代码的使用</span></p></li></ol><p>&nbsp;</p><h2 id='第七章-软件测试'><span>第七章 软件测试</span></h2><h4 id='71软件测试概述'><span>7.1软件测试概述</span></h4><ol start='' ><li><p><span>软件测试是发现软件中错误和缺陷的主要手段</span></p></li><li><p><span>软件测试的目的是检测软件故障，以下是软件测试的原则</span></p><ol start='' ><li><p><span>完全测试不可能</span></p></li><li><p><span>测试中有风险</span></p></li><li><p><span>软件测试只能表示缺陷的存在</span></p></li></ol></li></ol><h4 id='72软件测试模型'><span>7.2软件测试模型</span></h4><p><span>软件测试模型是指软件测试的全部过程活动和任务框架</span></p><p><span>问题</span></p><ol start='' ><li><p><span>测试的时间</span></p></li><li><p><span>测试的步骤</span></p></li><li><p><span>如何对测试进行计划</span></p></li><li><p><span>不同阶段测试应该关注的对象</span></p></li><li><p><span>测试过程中应该考虑哪些问题</span></p></li><li><p><span>测试需要达到的目标</span></p></li></ol><p><span>模型</span></p><ol start='' ><li><p><span>V模型：瀑布模型的变种</span></p></li><li><p><span>W模型：由两个分别代表开发过程的V模型组成：优势在于测试活动可以并行进行</span></p></li><li><p><span>H模型：强调测试的独立性和灵活性</span></p></li></ol><p><span>测试用例和分类</span></p><ol start='' ><li><p><span>编写测试用例</span></p></li><li><p><span>测试用例</span></p></li><li><p><span>测试用例场景</span></p></li><li><p><span>分类简述在P129页</span></p></li></ol><p><span>软件测试方法</span></p><ol start='' ><li><p><span>黑盒测试</span></p><ol start='' ><li><p><span>等价划分法：划分若干子集，选出有代表的</span></p></li><li><p><span>边界值分析法：选取等价边界的测试用例</span></p></li><li><p><span>错误推测法：靠直觉和经验执行</span></p></li><li><p><span>因果图法：从自然语言书写的程序规格说明书中寻找因果关系，通过因果图产生验证表</span></p></li><li><p><span>决策表法：分析和表达多逻辑条件下执行不同操作的的情况的工具，把复杂逻辑和组合问题执行的情况的表述</span></p></li><li><p><span>场景法：包含基本流和备用流</span></p></li></ol></li><li><p><span>白盒测试（成本较高）</span></p><ol start='' ><li><p><span>代码检查法，检查代码的一致性</span></p></li><li><p><span>静态的结构分析法</span></p></li><li><p><span>程序插装技术</span></p></li><li><p><span>逻辑覆盖法：覆盖测试是百盒测试的重点</span></p></li><li><p><span>基本路径法</span></p></li></ol></li><li><p><span>灰盒测试结合了上两个</span></p></li></ol><p><span>单元测试：编写一个函数，检查其功能是否正常执行</span></p><p><span>集成测试：把多个单元组合起来进行测试，应该在单元测试之后{</span></p><ol start='' ><li><p><span>非增量式集成测试：一步到位</span></p></li><li><p><span>增量式集成测试：</span></p><ol start='' ><li><p><span>自顶向下：及早的发现问题，避免返工</span></p></li><li><p><span>自底向上：大大减少了装模块的开发</span></p></li></ol></li></ol><p><span>}</span></p><p><span>系统测试</span></p><ol start='' ><li><p><span>功能测试</span></p></li><li><p><span>性能cs</span></p></li><li><p><span>安装测试</span></p></li><li><p><span>可用性测试</span></p></li><li><p><span>压力测试</span></p></li><li><p><span>容量测试</span></p></li><li><p><span>安全性测试</span></p></li><li><p><span>稳健性测试</span></p></li><li><p><span>图形用户测试</span></p></li><li><p><span>文档测试</span></p></li></ol><p><span>验收测试</span></p><ol start='' ><li><p><span>位于系统测试之后</span></p></li><li><p><span>@和b测试</span></p><ol start='' ><li><p><span>@测试试图发现产品的错误</span></p></li><li><p><span>b测试由用户发起</span></p></li></ol></li></ol><p><span>回归测试：软件系统被修改后的重新进行的测试</span></p><p><span>自动化测试：利用策略，工具等减少人工介入的非技术性重复性，冗长的测试活动</span></p><p><span>软件调试：发生在测试之后，测试发现错误后排除错误的过程{</span></p><ol start='' ><li><p><span>强行排错法</span></p></li><li><p><span>回溯法</span></p></li><li><p><span>原因排除法</span></p><p><span>}</span></p></li></ol><h2 id='第八章'><span>第八章</span></h2><h3 id='81软件的部署与软件交付'><span>8.1软件的部署与软件交付</span></h3><p><span>软件部署就是给用户配置环境，让用户正常使用</span></p><p>&nbsp;</p><h3 id='82软件维护的过程'><span>8.2软件维护的过程</span></h3><ol start='' ><li><p><span>建立维护机构</span></p></li><li><p><span>用户提出维护申请并提交维护申请报告</span></p></li><li><p><span>维护人员确定维护类型，并实施工作</span></p></li><li><p><span>整理维护记录并对维护工作进行评审</span></p></li></ol><h3 id='83软件维护的分类'><span>8.3软件维护的分类</span></h3><ol start='' ><li><p><span>纠错型维护</span></p></li><li><p><span>适应性维护</span></p></li><li><p><span>完善性维护</span></p></li><li><p><span>预防性维护</span></p></li></ol><p><span>影响软件可维护性的因素</span></p><ol start='' ><li><p><span>可理解性</span></p></li><li><p><span>可测试性</span></p></li><li><p><span>可修改性</span></p></li></ol><h3 id='85软件维护的副作用'><span>8.5软件维护的副作用</span></h3><ol start='' ><li><p><span>修改代码的副作用</span></p></li><li><p><span>修改数据的副作用</span></p></li><li><p><span>修改文档的副作用</span></p></li></ol><h3 id='86软件运维'><span>8.6软件运维</span></h3><ol start='' ><li><p><span>软件运维指的是对it系统或者软件应用的日常维护和管理工作</span></p><ol start='' ><li><p><span>系统监控和故障排除</span></p></li><li><p><span>配置管理</span></p></li><li><p><span>数据管理和备份</span></p></li><li><p><span>安全管理</span></p></li><li><p><span>性能优化</span></p></li><li><p><span>用户支持和培训</span></p></li></ol><p>&nbsp;</p><p>&nbsp;</p><h3 id='87软件再工程'><span>8.7软件再工程</span></h3><ol start='' ><li><p><span>重构：对源代码和数据进行修改</span></p></li><li><p><span>正向工程：又叫做改造，它从现存的软件的设计恢复得到的信息去重构系统</span></p></li><li><p><span>逆向工程：源于硬件领域，是一种对产品实际样本进行检查和分析得到设计和活动的方式</span></p></li></ol><h3 id='88软件维护实例'><span>8.8软件维护实例</span></h3><ol start='' ><li><p><span>见书</span></p></li></ol><p>&nbsp;</p></li></ol><h2 id='第九章-面向对象的软件工程方法'><span>第九章 面向对象的软件工程方法</span></h2><h3 id='91面向对象的基本概念'><span>9.1面向对象的基本概念</span></h3><ol start='' ><li><p><span>面向对象：即按人们认识客观世界的系统思维方式，采用基于对象的概念建立模型，模拟客观世界分析，设计，实现软件的办法。通过面向对象的理念，计算机软件系统能与现实世界中的系统一一对应</span></p></li><li><p><span>对象，即现实世界中各种各样的实体。它可以指具体的事物，在面向对象概念中我们把对象的内部状态称之为属性，把运动规律叫做称作操作和服务</span></p></li><li><p><span>类：具有相似内部运动状态和运动规律的实体的抽象</span></p></li><li><p><span>消息：对象之间相互联系和相互作用的方式</span></p></li><li><p><span>类的特性</span></p><ol start='' ><li><p><span>抽象</span></p></li><li><p><span>继承</span></p></li><li><p><span>封装</span></p></li><li><p><span>多态</span></p></li><li><p><span>重写</span></p></li><li><p><span>包</span></p></li><li><p><span>包的接口类</span></p></li></ol></li></ol><h3 id='92软件工程方法的特征和优势'><span>9.2软件工程方法的特征和优势</span></h3><ol start='' ><li><p><span>面向对象的软件工程方法的特征</span></p><ol start='' ><li><p><span>将数据和操作封装在一起</span></p></li><li><p><span>将特征相似的对象抽象为类</span></p></li><li><p><span>对象之间通过发送信息来进行通信</span></p></li><li><p><span>将对象的私有信息封装起来</span></p></li></ol></li><li><p><span>面向对象的软件工程方法的优势</span></p><ol start='' ><li><p><span>符合习惯</span></p></li><li><p><span>稳定性好</span></p></li><li><p><span>可复用性好</span></p></li><li><p><span>可维护性好</span></p></li></ol></li><li><p><span>面向对象的实施步骤：分析，域，设计，实现，测试</span></p></li></ol><h3 id='921-uml简述'><span>9.2.1 UML简述</span></h3><p><span>   UML是一种标准的可视化建模语言</span></p><p><span>   UML以面向对象的方式描述系统，用图表达模型的内容</span></p><p><span>   </span></p><h3 id='93静态建模机制'><span>9.3静态建模机制</span></h3><p><span>   用例图：从用户角度描述系统的行为</span></p><p><span>   用例之间的关系</span></p><ol start='' ><li><p><span>包含关系</span></p></li><li><p><span>扩展关系</span></p></li><li><p><span>泛化关系</span></p></li></ol><p><span>   类图与对象图</span></p><p><span>   类图使用类和对象描述系统结构</span></p><p><span>   类与类之间的关系</span></p><ol start='' ><li><p><span>关联关系</span></p></li><li><p><span>依赖关系</span></p></li><li><p><span>泛化关系</span></p></li><li><p><span>实现关系</span></p></li></ol><p><span>   包图：用来描述模型中包和元素的组织之间的关系的</span></p><p><span>   </span></p><h3 id='94动态建模机制'><span>9.4动态建模机制</span></h3><ol start='' ><li><p><span>顺序图：描述一组对象的交互方式</span></p></li><li><p><span>协作图：显示系统的动作协作</span></p></li><li><p><span>状态图：描述对象对外部对象相应的历史状态</span></p></li><li><p><span>活动图：展开整个计算步骤的控制流</span></p></li></ol><h3 id='95-描述物理架构的机制'><span>9.5 描述物理架构的机制</span></h3><ol start='' ><li><p><span>组件制:根据系统组件显示系统的物理结构</span></p></li><li><p><span>部署图：显示系统中硬件和软件的物理结构</span></p></li></ol><p><span>   </span></p><h2 id='第十章面向对象分析'><span>第十章面向对象分析</span></h2><h3 id='101面向对象分析过程'><span>10.1面向对象分析过程</span></h3><ol start='' ><li><p><span>面向对象的分析主要以用例模型为基础</span></p></li><li><p><span>面向对象分析原则</span></p><ol start='' ><li><p><span>定义有意义的对象</span></p></li><li><p><span>模型的描述要符合规范</span></p></li><li><p><span>共享性</span></p></li><li><p><span>封装性</span></p></li></ol></li><li><p><span>面向对象建模建立三种模型</span></p><ol start='' ><li><p><span>数据结构的对象模型</span></p><ol start='' ><li><p><span>划分主题</span></p></li><li><p><span>确定类对象</span></p></li><li><p><span>确定结构</span></p></li><li><p><span>确定属性</span></p></li></ol></li><li><p><span>系统控制的动态模型</span></p><ol start='' ><li><p><span>编写脚本</span></p></li><li><p><span>设想用户界面</span></p></li><li><p><span>画UML顺序图</span></p></li><li><p><span>画状态图</span></p></li></ol></li><li><p><span>描述系统功能的功能模型</span></p><ol start='' ><li><p><span>确定输入输出</span></p></li><li><p><span>画数据流图</span></p></li><li><p><span>确定服务</span></p></li></ol></li></ol></li><li><p><span>三种模型之间的关系</span></p><ol start='' ><li><p><span>动态模型描述了类实例的生命周期或运行周期</span></p></li><li><p><span>动态模型的状态驱使行为的发生</span></p></li><li><p><span>见214页</span></p></li></ol></li></ol><h2 id='第十一章面向对象设计'><span>第十一章面向对象设计</span></h2><h3 id='112面向对象设计与面向对象分析的关系'><span>11.2面向对象设计与面向对象分析的关系</span></h3><p><span>   设计阶段的任务是及时将分析阶段的需求转变符合要求的各项任务</span></p><p><span>   面向对象设计的过程</span></p><ol start='' ><li><p><span>建立软件体系结构环境图</span></p></li><li><p><span>软件体系结构设计</span></p></li><li><p><span>设计子系统</span></p></li><li><p><span>对象设计及优化</span></p></li></ol><p><span>   面向对象设计的原则</span></p><ol start='' ><li><p><span>模块化</span></p></li><li><p><span>抽象化</span></p></li><li><p><span>信息隐藏</span></p></li><li><p><span>低耦合</span></p></li><li><p><span>高内聚</span></p></li><li><p><span>复用性</span></p></li></ol><p><span>   面向对象设计的过程</span></p><ol start='' ><li><p><span>开闭原则</span></p></li><li><p><span>里氏替换原则</span></p></li><li><p><span>依赖倒置原则</span></p></li><li><p><span>接口分离原则</span></p></li><li><p><span>单一职责原则</span></p></li></ol><h3 id='启发规则'><span>启发规则</span></h3><ol start='' ><li><p><span>设计结果应该清晰易懂</span></p></li><li><p><span>类等级深度也应该适当</span></p></li><li><p><span>设计简单的类</span></p></li><li><p><span>使用简单的协议</span></p></li><li><p><span>使用简单的操作</span></p></li><li><p><span>将设计的变动最小</span></p></li></ol><h3 id='系统设计'><span>系统设计</span></h3><p><span>   将系统分解成若干个系统按照一定的拓扑关系</span></p><ol start='' ><li><p><span>系统分解：建立系统的体系结构</span></p></li><li><p><span>问题域子系统的设计</span></p><ol start='' ><li><p><span>为什么</span></p></li><li><p><span>如何</span></p></li></ol></li><li><p><span>人机交互子系统设计</span></p><ol start='' ><li><p><span>为什么</span></p></li><li><p><span>如何</span></p></li></ol></li><li><p><span>数据库管理子系统的设计</span></p><ol start='' ><li><p><span>为什么</span></p></li><li><p><span>如何</span></p></li></ol></li></ol><h3 id='对象设计'><span>对象设计</span></h3><ol start='' ><li><p><span>设计中的服务类</span></p><ol start='' ><li><p><span>确定类中应有的服务</span></p></li><li><p><span>从对象模型中引入服务</span></p></li><li><p><span>从动态模型中确定服务</span></p></li></ol></li><li><p><span>设计实现服务类的方法</span></p><ol start='' ><li><p><span>设计实现服务的算法</span></p></li><li><p><span>选择数据结构</span></p></li><li><p><span>定义内部类和内部操作</span></p></li></ol></li><li><p><span>设计类的关联</span></p><ol start='' ><li><p><span>关联的便利</span></p><ol start='' ><li><p><span>单项遍历</span></p></li><li><p><span>双向遍历</span></p></li></ol></li><li><p><span>单项的实现</span></p></li><li><p><span>双向的实现</span></p></li></ol></li><li><p><span>链属性的实现</span></p></li></ol><h3 id='对象设计优化'><span>对象设计优化</span></h3><ol start='' ><li><p><span>确定优先级</span></p></li><li><p><span>提高效率的技术P240</span></p></li><li><p><span>调整继承关系p240</span></p><p>&nbsp;</p></li></ol><h3 id='软件设计模式'><span>软件设计模式</span></h3><p><span>   </span></p><p><span>   P242</span></p><p><span>   </span></p><h2 id='第十二章面向对象实现'><span>第十二章面向对象实现</span></h2><h3 id='语言的选择'><span>语言的选择</span></h3><h3 id='设计风格'><span>设计风格</span></h3><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang=""><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang=""><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51989px; left: 7.98297px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">1. 提高稳健性</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">1. 提高可扩充性</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">1. 提高可复用性</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 69px;"></div><div class="CodeMirror-gutters" style="display: none; height: 69px;"></div></div></div></pre><p><span>   </span></p><h2 id='第十三章面向对象测试'><span>第十三章面向对象测试</span></h2><ol start='' ><li><p><span>与传统测试的比较P259</span></p></li><li><p><span>面向对象的单元测试</span></p><ol start='' ><li><p><span>方法</span></p></li><li><p><span>类</span></p></li></ol></li><li><p><span>面向对象的集成测试</span></p></li><li><p><span>面向对象的系统测试</span></p></li><li><p><span>                   回归测试</span></p></li></ol><p><span>   </span></p><p><span>   面向对象用例设计</span></p><ol start='' ><li><p><span>基本概念P264</span></p></li><li><p><span>面向对象对测试的影响</span></p></li><li><p><span>基于故障的测试</span></p></li><li><p><span>基于场景的测试</span></p></li></ol><h2 id='第十四章软件工程管理'><span>第十四章软件工程管理</span></h2><h3 id='软件估算'><span>软件估算</span></h3><ol start='' ><li><p><span>软件估算，基于信息估算对象的科学性</span></p></li><li><p><span>软件估算的方法</span></p><ol start='' ><li><p><span>功能点估算法</span></p></li><li><p><span>代码行</span></p></li><li><p><span>COCOMO</span></p></li><li><p><span>软件方程式</span></p></li><li><p><span>类比</span></p></li><li><p><span>WBS</span></p></li><li><p><span>Delphi</span></p></li><li><p><span>PERT</span></p></li><li><p><span>综合</span></p></li></ol></li><li><p><span>原则和技巧P273</span></p></li></ol><h3 id='软件开发进度计划'><span>软件开发进度计划</span></h3><ol start='' ><li><p><span>Gantt图</span></p></li><li><p><span>PERT图</span></p><ol start='' ><li><p><span>任务</span></p></li><li><p><span>事件</span></p></li><li><p><span>任务的时间属性</span></p></li><li><p><span>时间属性的计算</span></p></li><li><p><span>关键路径</span></p></li><li><p><span>任务之间的关系</span></p></li><li><p><span>PERT图的局限</span></p></li><li><p><span>如何克服7</span></p></li></ol></li></ol><h3 id='软件开发人员组织'><span>软件开发人员组织</span></h3><p><span>   </span></p><p><span>   </span></p><p><span>   </span></p><p><span>   </span></p><p>&nbsp;</p><p><span>   </span></p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
