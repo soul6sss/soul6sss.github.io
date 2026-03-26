@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的技术文档库</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pdf-modal.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -53,6 +54,16 @@
 
         </nav>
 
+        <!-- PDF Modal -->
+        <div id="pdf-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="pdf-container">
+                    <iframe id="pdf-frame" src="" width="100%" height="600px" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+
         <!-- Main Content -->
         <main class="main-content">
             <header class="top-header">
@@ -79,6 +90,17 @@
                             <div class="card-info">
                                 <div class="card-title">计算机网络</div>
                                 <div class="card-desc">计算机网络基础理论与协议详解</div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- PDF Section -->
+                    <div class="category-subtitle">PDF 资料</div>
+                    <div class="grid">
+                         <a href="pdfs/network/计算机网络手写.pdf" class="card pdf-card" data-pdf="pdfs/network/计算机网络手写.pdf">
+                            <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">计算机网络手写笔记</div>
+                                <div class="card-desc">点击预览 PDF 文件</div>
                             </div>
                         </a>
                     </div>
@@ -159,6 +181,24 @@
                             </div>
                         </a>
                     </div>
+                    <!-- PDF Section -->
+                    <div class="category-subtitle">PDF 资料</div>
+                    <div class="grid">
+                         <a href="pdfs/java/mybatis.pdf" class="card pdf-card" data-pdf="pdfs/java/mybatis.pdf">
+                            <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">MyBatis 笔记</div>
+                                <div class="card-desc">点击预览 PDF 文件</div>
+                            </div>
+                        </a>
+                        <a href="pdfs/java/SSM.pdf" class="card pdf-card" data-pdf="pdfs/java/SSM.pdf">
+                            <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">SSM 框架笔记</div>
+                                <div class="card-desc">点击预览 PDF 文件</div>
+                            </div>
+                        </a>
+                    </div>
                 </section>
 
                 <!-- Math -->
@@ -177,6 +217,17 @@
                             <div class="card-info">
                                 <div class="card-title">高等数学</div>
                                 <div class="card-desc">微积分与线性代数基础</div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- PDF Section -->
+                    <div class="category-subtitle">PDF 资料</div>
+                    <div class="grid">
+                         <a href="#" class="card pdf-card" data-pdf="pdfs/math/example.pdf">
+                            <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">示例 PDF</div>
+                                <div class="card-desc">点击预览 PDF 文件</div>
                             </div>
                         </a>
                     </div>
@@ -208,6 +259,17 @@
                             </div>
                         </a>
                     </div>
+                    <!-- PDF Section -->
+                    <div class="category-subtitle">PDF 资料</div>
+                    <div class="grid">
+                         <a href="#" class="card pdf-card" data-pdf="pdfs/server/example.pdf">
+                            <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">示例 PDF</div>
+                                <div class="card-desc">点击预览 PDF 文件</div>
+                            </div>
+                        </a>
+                    </div>
                 </section>
 
                 <!-- C Language -->
@@ -226,6 +288,17 @@
                             <div class="card-info">
                                 <div class="card-title">标准库</div>
                                 <div class="card-desc">常用类库详解</div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- PDF Section -->
+                    <div class="category-subtitle">PDF 资料</div>
+                    <div class="grid">
+                         <a href="#" class="card pdf-card" data-pdf="pdfs/c/example.pdf">
+                            <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">示例 PDF</div>
+                                <div class="card-desc">点击预览 PDF 文件</div>
                             </div>
                         </a>
                     </div>
@@ -261,6 +334,17 @@
                             <div class="card-info">
                                 <div class="card-title">计算机组成原理</div>
                                 <div class="card-desc">计算机硬件与体系结构</div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- PDF Section -->
+                    <div class="category-subtitle">PDF 资料</div>
+                    <div class="grid">
+                         <a href="#" class="card pdf-card" data-pdf="pdfs/basics/example.pdf">
+                            <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+                            <div class="card-info">
+                                <div class="card-title">示例 PDF</div>
+                                <div class="card-desc">点击预览 PDF 文件</div>
                             </div>
                         </a>
                     </div>

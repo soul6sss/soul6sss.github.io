@@ -106,6 +106,35 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initial call to set active state
     updateActiveNav();
+
+    // PDF Modal Logic
+    const modal = document.getElementById('pdf-modal');
+    const modalFrame = document.getElementById('pdf-frame');
+    const closeModal = document.querySelector('.close-modal');
+
+    document.querySelectorAll('.pdf-card').forEach(card => {
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            const pdfPath = this.getAttribute('data-pdf') || this.getAttribute('href');
+            const normalized = pdfPath ? encodeURI(pdfPath) : '';
+            if (normalized) {
+                modalFrame.src = normalized;
+                modal.style.display = 'block';
+            }
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+        modalFrame.src = ''; // Clear source to stop playing/loading
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target == modal) {
+            modal.style.display = 'none';
+            modalFrame.src = '';
+        }
+    });
 });
 
 // Add keyframes for search animation

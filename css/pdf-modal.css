@@ -1,0 +1,82 @@
+
+/* PDF Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pdf-container {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #f0f0f0;
+    border-radius: 8px;
+}
+
+.pdf-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.category-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin: 1.5rem 0 1rem 0;
+    padding-left: 0.5rem;
+    border-left: 4px solid var(--accent-color);
+    font-weight: 600;
+}
+
+.pdf-card {
+    background: rgba(255, 255, 255, 0.8) !important;
+    border-color: var(--accent-color) !important;
+}
+
+.pdf-card .card-icon {
+    color: var(--accent-color) !important;
+    background: rgba(253, 121, 168, 0.1) !important;
+}
